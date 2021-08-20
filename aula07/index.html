@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de vida</title>
+</head>
+
+<body>
+    <div id="ciclhodevida">
+
+        <h2>Olá {{name}}</h2>
+        <ul>
+            <li v-for="state in states">{{state.nome}}-{{state.sigla}}</li>
+        </ul>
+
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#ciclhodevida',
+            data: {
+                name: 'Luiz Antonio',
+                states: []
+            },
+
+            beforeCreate() {
+                console.log('before created')
+            },
+            created() {
+                //api que tras os estados brasileiros
+                fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+                .then(response => {
+                    
+                    response.json().then(data => {
+                        this.states = data
+                    })
+
+                }).catch(error => {
+                    console.log(error)
+                })
+                console.log('created')
+            },
+            beforeMount() {
+                console.log('before mount')
+            },
+            mounted() {
+                console.log('mounted')
+            },
+
+            beforeUpdate() {
+                console.log('before update')
+            },
+
+            updated() {
+                console.log('update')
+            },
+            beforeDestroy() {
+                console.log('before destroy')
+            },
+            destroyed() {
+                console.log('destroy')
+            },
+        })
+
+
+    </script>
+
+</body>
+
+</html>

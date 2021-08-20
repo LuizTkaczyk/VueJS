@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades armazenadas</title>
+</head>
+
+<body>
+    <div id="computed">
+        <h2>Nome : {{person.nome}} {{person.sobrenome}}</h2>
+        <h2>Nome : {{nomeCompleto}}</h2>
+        <!--chamando a função que traz o nome completo-->
+        <h2>Nome : {{pegarNomeCompleto()}}</h2>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#computed',
+            data: {
+                //passando dados para a página Html - computed
+                person: {
+                    nome: 'Luiz Antonio',
+                    sobrenome: 'Tkaczyk dos Santos'
+                }
+            },
+
+            methods: {
+                pegarNomeCompleto(){//chamado todas as vezes
+                    return `${this.person.nome} ${this.person.sobrenome}`
+                }
+            },
+            computed: {//chamado somente uma vez (pois fica em cache)
+                nomeCompleto() {
+                    return `${this.person.nome} ${this.person.sobrenome}`
+                }
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>

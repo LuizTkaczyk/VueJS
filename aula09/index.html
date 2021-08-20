@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters</title>
+</head>
+
+<body>
+    <div id="filters">
+
+        <h3>{{nome | placeholder('Não foi infomado o nome')}}</h3>
+        <h2>Olá {{nome}}</h2>
+        <h2>Olá {{nome | upper}}</h2>
+        <h2>O meu salario é {{salario | real}} {{salario | pluralize(['real','reais'])}} </h2>
+        <input type="text" placeholder="Digite o seu salario" v-model="salario">
+        <h3>{{msg | truncate(50)}}</h3>
+
+    </div>
+
+  
+    <script src="vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"> //filtros Vue</script>
+    <script>
+        let app = new Vue({
+            el: '#filters',
+            data: {
+                nome: 'Luiz Antonio',
+                salario:1,
+                msg:'  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id sapiente distinctio possimus tempore itaque libero, cupiditate, neque illum officiis incidunt quisquam! Nemo, numquam? Fugit iusto iste, aut alias iure consectetur'
+
+            },
+            filters:{//filtro para deixar em maiuscula
+                upper:function(value){
+                    return value.toUpperCase()
+                },
+                real:function(value){
+                    return `R$ ${parseInt(value).toFixed(2)}`
+                }
+            }
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
