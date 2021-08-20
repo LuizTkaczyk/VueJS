@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-bind</title>
+</head>
+
+<body>
+    <div id="diretivas">
+        <h2>Acesse o site abaixo</h2>
+        <!--Assim -->
+        <a :href="url" target="blank">Site da Luma</a>
+        <br>
+         <!--Ou assim -->
+         <a v-bind:href="youtube" target="blank">Youtube</a>
+
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+               url:'http://lumamodas.epizy.com/',
+               youtube:'https://www.youtube.com/'
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

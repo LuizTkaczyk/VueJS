@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-if e V-else</title>
+</head>
+
+<body>
+    <div id="diretivas">
+        <h1 v-if="show">Uso do V-if, V-else e V-else-if</h1>
+        <h3 key="disponivel" v-if="tickets >=20">Há ingressos disponíveis</h3>
+
+        <h3 key="quaseAcabando" v-else-if="tickets >= 1">Há poucos ingressos disponíveis</h3>
+
+        <h3 key="indisponivel" v-else>Acabaram os ingressos</h3>
+
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                show: true,
+                tickets: 100
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

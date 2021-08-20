@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-for</title>
+</head>
+
+<body>
+    <div id="diretivas">
+        <h2>Cidades top do mundo</h2>
+        <ol>
+            <!--Percorrendo e imprimindo um array-->
+            <li v-for="city in cities">{{city}}</li>
+        </ol>
+
+        <ol>
+            <!--Percorrendo e imprimindo objetos-->
+            <li v-for="veiculo in veiculos">{{veiculo.carro}}-{{veiculo.tipo}}</li>
+        </ol>
+
+        <h2>Filmes mais assitidos do mundo</h2>
+        <ul>
+            <li v-for="(picture, index) in movies">{{index}}. {{picture}}</li>
+           
+        </ul>
+        <h2>Minha empresa</h2>
+       <p v-for="(value, key, index) in company">{{key}} - {{value}}</p>
+
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                cities: ['Turvo', 'Palmerinha', 'Pinhão', 'Cantagalo'],
+                veiculos: [{
+                    carro: 'Palio',
+                    tipo: 'Popular'
+                }, {
+                    carro: 'Ferrari',
+                    tipo: 'Luxo'
+
+                }, {
+                    carro: 'Volvo',
+                    tipo: 'Caminhão'
+                }, {
+                    carro: 'S-10',
+                    tipo: 'Camionete'
+                }],
+
+                movies:['A volta dos que não foram', 'Poeira em alto mar', 'As longas tranças de um careca', 'A agua seca do mar do deserto'],
+
+                company:{
+                    nome:'Luma modas',
+                    ano:2018,
+                    fundadores:'L&M'
+                }
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

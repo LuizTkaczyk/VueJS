@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-show</title>
+</head>
+
+<body>
+    <div id="diretivas">
+        <!--Esconde o elemento alterando a sua propriedade css-->
+        <h2 v-show="isLogged">V-show -Bem vindo ao sistema</h2>
+        
+        <!--Apaga a propriedade do documento-->
+        <h2 v-if="isLogged">V-if -Bem vindo ao sistema</h2>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                isLogged: true
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-html</title>
+</head>
+
+<body>
+    <div id="diretivas">
+
+        <div v-html="headerHTML"></div>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                headerHTML:`
+                <header>
+                    <h1 style="text-align:center;">I'm Batman</h1>
+                    <img src="img/bat.png" style="margin:auto 20%">
+                
+                `
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
