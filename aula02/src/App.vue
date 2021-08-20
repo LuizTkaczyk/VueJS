@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <frase msg="Welcome Luiz Antonio"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <frase msg="Welcome Luiz Antonio" />
   </div>
 </template>
 
 <script>
-import frase from './components/HelloWorld.vue'
+import frase from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    frase
-  }
-}
+    frase,
+  },
+};
 </script>
 
 <style>
