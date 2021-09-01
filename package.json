@@ -1,0 +1,23 @@
+{
+  "name": "VueJS",
+  "version": "1.0.0",
+  "description": "IntroducaoVue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizTkaczyk/VueJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuizTkaczyk/VueJS/issues"
+  },
+  "homepage": "https://github.com/LuizTkaczyk/VueJS#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}
