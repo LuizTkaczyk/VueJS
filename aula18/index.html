@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-pre</title>
+</head>
+
+<body>
+
+    <div id="diretivas">
+
+        <h2 v-pre>{{ message }}</h2>
+
+        <p v-on:click="alert('ialal')" v-pre>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, illo
+            tempora odit voluptatem beatae odio at numquam dolor facere exercitationem, quidem quaerat fugiat id hic ea
+            temporibus, labore perspiciatis officia?</p>
+
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                message: 'Luiz Antonio',
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -17,6 +17,8 @@
          <!--Ou assim -->
          <a v-bind:href="youtube" target="blank">Youtube</a>
 
+         <p :[arg]='value'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque velit eum voluptatibus sapiente corrupti porro officiis ratione, earum magnam beatae consequuntur quam? Consequuntur delectus repudiandae, distinctio porro id suscipit veritatis.</p>
+
     </div>
 
 
@@ -27,7 +29,9 @@
             el: '#diretivas',
             data: {
                url:'http://lumamodas.epizy.com/',
-               youtube:'https://www.youtube.com/'
+               youtube:'https://www.youtube.com/',
+               arg: 'title',
+               value: 'Paragrafo de exemplo'
             },
 
 

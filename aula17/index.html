@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-model</title>
+</head>
+
+<body>
+    <div id="diretivas">
+       <h3 v-bind:style="{ fontSize: textsize + 'px' }">Luiz Antonio </h3>
+
+       <input type="number" placeholder="Digite o tamanho do texto" v-model="textsize"> px
+
+       <h4 v-bind:style="{ color: textcolor }">Que a força esteja com você padawan</h4>
+
+       Selecionando uma cor do texto :<input type="color" placeholder="Digite a cor do texto" v-model="textcolor">
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+              textsize:30,
+              textcolor:"black"
+            },
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de vide de uma diretiva</title>
+</head>
+
+<body>
+    <div id="diretivas">
+        <h1 v-upper>{{ nome }}</h1>
+        <h1 v-capitalize>{{nome}} antonio dos santos</h1>
+
+        <!-- <h1 v-custom:parametro.mod1.mod2="'Informação'">{{nome}}</h1>  -->
+
+        <h2 v-custom=" { direction: argumento, distancia}">{{ nome }}</h2>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        //Criando uma diretiva global
+        Vue.directive('upper', {
+            inserted(elemento) {
+                elemento.innerText = elemento.innerText.toUpperCase()
+            }
+        })
+
+        function setDirection(elemento, binding) {
+            elemento.style.margin = 0
+            let direction = binding.value.direction.toLowerCase()
+            let value = binding.value.distancia
+            switch (direction) {
+                case 'left':
+                case 'right':
+                case 'bottom':
+                case 'top':
+                    let newDirection = direction.charAt(0).toUpperCase() + direction.slice(1)
+                    eval(`elemento.style.margin${newDirection} = value + "px" `)
+                    break
+            }
+
+        }
+
+
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                nome: 'Luiz Antonio',
+                argumento: 'left',
+                distancia: 150
+            },
+            //Criando uma diretiva local
+            directives: {
+                /* FUNÇOES PARA DIRETIVAS
+                capitalize: {
+                    bind(elemento) {
+                        console.log('BIND- Vinculado a um elemento')
+                    },
+                    inserted(elemento) {
+                        console.log('INSERTED - Elemento inserido na página')
+                        let words = elemento.innerText.split(' ')
+                        words.forEach((text, index) => {
+
+                            words[index] = text.charAt(0).toUpperCase() + text.slice(1)
+                        })
+                        elemento.innerText = words.join(' ')
+                    },
+                    update(elemento) {
+                        console.log('UPDATE - Elemento foi atualizado na página')
+                    },
+                    unbind(elemento) {
+                        console.log('UNBIND - Elemento foi desvinculado na página')
+                    },
+                    componentUpdate(elemento) {
+                        console.log('UPDATE - Elemento foi atualizado na página')
+                    }
+
+                },
+                */
+                custom: {
+                    inserted(elemento, binding, vnode) {
+                        /*
+                        console.log(vnode)
+                        elemento.style.color='blue'
+                        */
+
+                        setDirection(elemento, binding)
+
+
+                    },
+                    update(elemento, binding, vnode, oldvnode) {
+                        /*
+                        console.log(vnode, oldvnode)
+                        elemento.style.textDecoration = 'underline'
+                        */
+
+                        setDirection(elemento, binding)
+
+
+                    }
+                }
+
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

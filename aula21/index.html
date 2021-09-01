@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas personalizadas</title>
+</head>
+
+<body>
+    <div id="diretivas">
+        <h1 v-upper>{{ nome }}</h1>
+        <h1 v-capitalize>luiz antonio dos santos</h1>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        //Criando uma diretiva global
+        Vue.directive('upper', {
+            inserted(elemento) {
+                elemento.innerText = elemento.innerText.toUpperCase()
+            }
+        })
+
+
+        let app = new Vue({
+            el: '#diretivas',
+            data: {
+                nome: 'Luiz Antonio'
+            },
+            //Criando uma diretiva local
+            directives: {
+                capitalize: function (elemento) {
+                    let words = elemento.innerText.split(' ')
+                    words.forEach((text, index) => {
+
+                        words[index] = text.charAt(0).toUpperCase() + text.slice(1)
+                    })
+                    elemento.innerText = words.join(' ')
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
