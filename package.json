@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/LuizTkaczyk/VueJS#readme",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "bootstrap": "^4.0.0"
   }
 }

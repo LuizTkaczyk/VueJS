@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição de elementos</title>
+    <link rel="stylesheet" href="animate.css/animate.min.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
+
+
+    <style>
+        .fade-transition-enter-active,
+        .fade-transition-leave-active {
+            transition: opacity .5s ease-in-out;
+        }
+
+        .fade-transition-enter,
+        .fade-transition-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="animations">
+        <h1>Vue.js</h1>
+        <input type="text" v-model="name">
+        <transition name='fade-transition'>
+
+            <h3 v-if="name.length > 10" key="nameOk" class="alert-success">Nome válido</h3>
+            <h3 v-else key="nameNotOk" class="alert-danger">Nome inválido</h3>
+
+        </transition>
+
+
+
+        <button @click='show = !show'>Clique aqui</button>
+
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#animations',
+            data: {
+
+                name: 'luiz'
+            },
+        })
+    </script>
+</body>
+
+</html>

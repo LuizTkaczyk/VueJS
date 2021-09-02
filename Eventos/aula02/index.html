@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto event</title>
+
+    <style>
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="events">
+
+        <button v-on:click="call($event)">Clique aqui</button>
+
+        <hr>
+
+        <a href="http://www.youtube.com" v-on:click="call($event)" >Youtube</a>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#events',
+            data: {
+                counter: 0
+
+            },
+            methods: {
+                call(e) {
+                    e.preventDefault();
+                    
+                    console.log(e)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

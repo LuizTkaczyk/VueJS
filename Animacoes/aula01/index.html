@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição Css</title>
+
+    <style>
+        .first-enter-active {
+            transition: opacity .5s ease;
+        }
+
+        .first-leave-active {
+            transition: opacity .5s ease-out;
+        }
+
+
+        .first-enter,
+        .first-leave-to {
+            opacity: 0;
+        }
+
+        .second-enter-active {
+            transition: all .5s linear;
+        }
+
+        .second-leave-active {
+            transition: all .5s linear;
+        }
+
+        .second-enter,
+        .second-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="animations">
+
+        <transition name="first">
+            <h2 v-if="show">Luiz Antonio Tkaczyk dos Santos</h2>
+        </transition>
+        <hr>
+        <button @click="show2 = !show2">Clique aqui</button>
+        <transition name='second'>
+            <div v-if="show2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis expedita voluptate
+                eveniet error itaque? Ex iure in praesentium optio, quas cum voluptatibus exercitationem perferendis
+                dicta eligendi hic molestiae deserunt! Adipisci!</div>
+
+        </transition>
+
+
+
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#animations',
+            data: {
+
+                show: true,
+                show2: false
+
+            }
+        })
+    </script>
+</body>
+
+</html>

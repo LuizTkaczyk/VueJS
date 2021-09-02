@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações Css</title>
+
+    <style>
+        .animation-first-enter-active{
+            animation: animation_first 1s;
+        }
+
+        .animation-first-leave-active{  
+            animation: animation_first 1s reverse;
+        }
+
+        @keyframes animation_first {
+            from{
+                background: white;
+            }
+            to{
+                background: gray;
+            }
+        }
+
+
+        /**/
+        .animation-second-enter-active{
+            animation: animation_second 1s ;
+        }
+        .animation-secont-leave-active{
+            animation: animation_second 1.5s reverse;
+        }
+
+        @keyframes animation_second {
+            0%{
+                background-color: white;
+                font-size: 20px;
+                text-align: center;
+            }
+            50%{
+                background-color: red;
+                font-size: 50px;
+                text-align: center;
+            }
+            100%{
+                background-color: white;
+                font-size: 20px;
+                text-align: center;
+                
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="animations">
+
+        <transition name="animation-first">
+            <h2 v-if="show">Luiz Antonio Tkaczyk dos Santos</h2>
+        </transition>
+
+        <hr>
+
+        <button @click="show2 = !show2">Clique aqui</button>
+        <transition name='animation-second'>
+            <div v-if="show2">WoW</div>
+
+        </transition>
+
+
+
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#animations',
+            data: {
+
+                show: true,
+                show2: false
+
+            }
+        })
+    </script>
+</body>
+
+</html>

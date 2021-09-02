@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transiçao JS</title>
+    <link rel="stylesheet" href="animate.css/animate.min.css">
+
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="animations">
+
+        <transition 
+        name="animation-first"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @enter-cancelled="enterCancelled"
+
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave"
+        @leave-cancelled="leaveCancelled"
+
+        >
+            <h1 v-if="show">Luiz Antonio Tkaczyk dos Santos</h1>
+        </transition>
+
+        <button @click='show = !show'>Clique aqui</button>
+
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#animations',
+            data: {
+
+                show: true,
+
+
+            },
+            methods: {
+                beforeEnter() {
+                    console.log('before enter')
+                },
+                enter() {
+                    console.log('enter')
+                },
+                afterEnter(element) {
+                    console.log('after enter', element)
+                    document.querySelector('h1').style.backgroundColor = 'black'
+                    document.querySelector('h1').style.color = 'yellow'
+                },
+                enterCancelled() {
+                    console.log('enter cancelled')
+                },
+
+
+                beforeLeave() {
+                    console.log('before leave')
+                },
+                leave() {
+                    console.log('leave')
+                },
+                afterLeave() {
+                    console.log('after leave')
+                    alert('O elemento foi oculto')
+
+                },
+                leaveCancelled() {
+                    console.log('leave Cancelled')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
