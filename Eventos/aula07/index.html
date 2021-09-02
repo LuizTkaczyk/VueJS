@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <title>Eventos modificadores de botões de mouse</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="events">
+        <div class="container">
+            <h2>Insira os dados</h2>
+            <form action="" class="form" v-on:submit.prevent>
+               
+                <div class="form-group">
+                    <label for="">Pressione as teclas abaixo</label>
+                    <input type="text" class="form-control" placeholder="Pressione o botão esquerdo do mouse" @click.left='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione o botão direito do mouse" @click.prevent.right='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione o botão do meio do mouse" @click.middle='exec'>
+                    
+                   
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>         
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#events',
+            data: {
+
+
+            },
+            methods: {
+                
+                exec(e){
+                    console.log(e.type)
+                },
+                
+                   
+                
+            },
+        })
+    </script>
+</body>
+
+</html>

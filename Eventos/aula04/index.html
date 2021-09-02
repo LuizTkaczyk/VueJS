@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <title>Eventos modificadores de teclado</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="events">
+        <div class="container">
+            <h2>Insira os dados</h2>
+            <form action="" class="form" v-on:submit.prevent>
+                <div class="row">
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="">Nome</label>
+                            <input type="text" class="form-control" name="username" placeholder="Digite o seu nome"
+                                v-on:keyup.enter="send($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Pressione as teclas abaixo</label>
+                    <input type="text" class="form-control" placeholder="Pressione enter" @keyup.enter='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione delete" @keyup.delete='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione tab" @keydown.tab='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione esc" @keyup.esc='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione space" @keyup.space='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione up" @keyup.up='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione down" @keyup.down='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione left" @keyup.left='exec'>
+                    <input type="text" class="form-control" placeholder="Pressione right" @keyup.right='exec'>
+                </div>
+
+            </form>
+
+        </div>
+    </div>         
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#events',
+            data: {
+
+
+            },
+            methods: {
+                send(event) {
+                    let form = event.target.form
+                    let data = new FormData(form)
+
+                    for (let value of data.entries()) {
+                        console.log(`${value[0]}:${value[1]}`)
+                    }
+
+                },
+
+                exec(e){
+                    console.log(e.key)
+                },
+
+                alert() {
+                    alert('ola')
+                }
+
+            },
+        })
+    </script>
+</body>
+
+</html>
