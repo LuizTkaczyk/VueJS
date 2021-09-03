@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <title>Componente global</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="components">
+
+        <div class="container">
+
+            <text-render text="Luiz Antonio"></text-render>
+
+            <hr>
+
+            <list-component></list-component>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        Vue.component('text-render', {
+            props: ['text'],
+            template: `
+                <div>
+                    <h3>{{ text }}</h3>
+                </div>
+            
+            `
+        })
+
+        Vue.component('list-component', {
+            template: `
+                <ul>
+                    <li v-for="pessoas in names">{{ pessoas }}</li>
+                </ul>
+            `,
+            data:function(){
+                return {
+                    names:['Luiz', 'Marta', 'João']
+                }
+            }
+        })
+
+
+
+        let app = new Vue({
+            el: '#components',
+            data: {
+
+            },
+
+
+        })
+    </script>
+</body>
+
+</html>
