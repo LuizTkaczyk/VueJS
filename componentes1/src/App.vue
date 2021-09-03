@@ -1,17 +1,36 @@
 <template>
   <div id="app">
+    <AppHeader @game-selected="changeGame" />
+  
+    <AppSection :jogo="jogo" />
 
-     <AppHeader/>
+    <AppFooter />
   </div>
- 
 </template>
 
 <script>
-import AppHeader from './components/AppHeader'
+import AppHeader from "./components/AppHeader";
+import AppFooter from "./components/AppFooter.vue";
+import AppSection from "./components/AppSection.vue";
+
 export default {
   name: "App",
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter,
+    AppSection,
+   
+  },
+
+  data(){
+    return{
+      jogo: 'luta'
+    }
+  },
+  methods: {
+    changeGame(value){
+        this.jogo = value
+    }
   },
 };
 </script>
