@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <AppHeader @game-selected="changeGame" />
-  
-    <AppSection :jogo="jogo" />
+    <AppHeader
+      @game-selected="changeGame"
+      @change-component="changeComponent"
+    />
+
+    <AppSection :jogo="jogo" :current-component="currentSectionComponent" />
 
     <AppFooter />
   </div>
@@ -19,18 +22,32 @@ export default {
     AppHeader,
     AppFooter,
     AppSection,
-   
   },
 
-  data(){
-    return{
-      jogo: 'luta'
-    }
+  data() {
+    return {
+      jogo: "luta",
+      currentSectionComponent: "AppBanner",
+    };
   },
   methods: {
-    changeGame(value){
-        this.jogo = value
-    }
+    changeGame(value) {
+      this.jogo = value;
+    },
+    changeComponent(value) {
+      let component;
+      switch (value) {
+        case "home":
+        default:
+          component = "AppBanner";
+          break;
+        case "news":
+          component = "AppSectionNews";
+          break;
+      }
+
+      this.currentSectionComponent = component;
+    },
   },
 };
 </script>

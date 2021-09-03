@@ -4,18 +4,18 @@
       <nav class="navbar navbar-expand">
         <a href="#" class="link navbar-brand mr-auto">
           <img
-            src="./../assets/logo.svg"
+            src="./../assets/games.png"
             alt=""
             class="img d-inline-block align-top"
             id="logo"
           />
-          Luiz Antonio
+          LATDS
         </a>
 
         <div class="links mr-2">
-          <a href="" class="btn mr-5">Início</a>
-          <a href="" class="btn mr-5">Times</a>
-          <a href="" class="btn mr-5">Classificações</a>
+          <a href="#" @click.prevent="$emit('change-component', 'home')" class="btn mr-5">Início</a>
+          <a href="#"  @click.prevent="$emit('change-component', 'news')" class="btn mr-5">Games</a>
+          <a href="#" class="btn mr-5">Gêneros</a>
 
           <select name="game" id="game-selected" class="form-control" @change="$emit('game-selected', $event.target.value)">
             <option value="">Tipos de jogos</option>
@@ -38,9 +38,10 @@ header {
   background-color: black;
 }
 
+
 #logo {
-  width: 150px;
-  height: 100%;
+  width: 100px;
+  height: 50px;
 }
 
 .links {

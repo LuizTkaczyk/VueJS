@@ -4,15 +4,21 @@
       <img :src="require('../assets/' + this.imgName)" :alt="imgInfo" />
     </div>
     <div class="col-9">
-      <h2>{{ newsTitle }}</h2>
-      <p>{{ newContent | truncate(200) }}</p>
+      
+      <slot name="title"></slot>
 
-      <span class="font-italic">{{ newsDate }}</span>
+      <slot>Noticias padrão</slot>
+
+      
+
+      <span class="font-italic">{{ formatDate(newsDate)  }}</span>
     </div>
   </div>
 </template>
 
 <script>
+
+import Utils from './../mixins/utilMixins'
 export default {
   props: {
     imgName: {
@@ -23,19 +29,13 @@ export default {
       type: String,
       required: true,
     },
-    newsTitle: {
-      type: String,
-      required: true,
-    },
-    newContent: {
-      type: String,
-      required: true,
-    },
     newsDate: {
       type: String,
       required: true,
     },
   },
+
+  mixins:[Utils]
 };
 </script>
 
