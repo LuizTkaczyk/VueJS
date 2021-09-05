@@ -1,18 +1,23 @@
 <template>
-<input type="text" class="form-control" placeholder="Digite o seu jogo favorito" v-bind="value" @keyup="$emit('input',$event.target.value)">
-    
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Digite o seu jogo favorito"
+    :value="meuJogo"
+    @keyup="updateJogoName($event.target.value)"
+  />
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
-    props:{
-        value: String
-    }
-    
-}
+  computed: mapGetters({
+    meuJogo: "getMeusJogos",
+  }),
+  methods: mapActions(["updateJogoName"]),
+};
 </script>
 
 <style scoped>
-
 </style>
 

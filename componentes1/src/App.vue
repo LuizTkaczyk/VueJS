@@ -5,7 +5,7 @@
       @change-component="changeComponent"
     />
 
-    <AppSection :jogo="jogo" :current-component="currentSectionComponent" />
+    <AppSection  :current-component="currentSectionComponent" />
 
     <AppFooter />
   </div>
@@ -15,6 +15,8 @@
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter.vue";
 import AppSection from "./components/AppSection.vue";
+//import {mapMutations} from 'vuex'
+import {mapActions} from 'vuex'
 
 export default {
   name: "App",
@@ -26,13 +28,25 @@ export default {
 
   data() {
     return {
-      jogo: "luta",
       currentSectionComponent: "AppBanner",
     };
   },
   methods: {
+    ...mapActions(['changeJogos']),
+
+    /*
+    jogo: function(value){
+      this.$store.dispatch('changeJogo', value)
+    },
+  */
+
+    /*
+    ...mapMutations({
+      jogo:'setJogo'
+    }),
+*/
     changeGame(value) {
-      this.jogo = value;
+     this.$store.commit('setJogo', value)
     },
     changeComponent(value) {
       let component;

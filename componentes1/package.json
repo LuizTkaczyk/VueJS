@@ -13,7 +13,8 @@
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",
-    "vue2-filters": "^0.13.0"
+    "vue2-filters": "^0.13.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
