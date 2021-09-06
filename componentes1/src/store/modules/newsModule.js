@@ -34,6 +34,12 @@ export default{
     getters:{
         getNews(state){
             return state.news
+        },
+        getNewsFromId: state => id => {
+            let notice = state.news.find(item =>{
+                return (item.id == id)
+            })
+            return notice
         }
     }
 }

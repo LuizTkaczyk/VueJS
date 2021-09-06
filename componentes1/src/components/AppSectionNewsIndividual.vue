@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row div-news">
     <div class="col-3">
       <img :src="require('../assets/' + this.imgName)" :alt="imgInfo" />
     </div>
@@ -39,16 +39,16 @@ export default {
 };
 </script>
 
-<style scoped>
-.row {
+<style>
+.div-news {
   margin-bottom: 30px;
 }
 
-img {
+.div-news img {
   width: 100%;
 }
 
-h2 {
+.div-news h2 {
   cursor: pointer;
   color: white;
 }

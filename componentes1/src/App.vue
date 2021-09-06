@@ -5,7 +5,7 @@
       @change-component="changeComponent"
     />
 
-    <AppSection  :current-component="currentSectionComponent" />
+    <AppSection />
 
     <AppFooter />
   </div>
@@ -28,7 +28,7 @@ export default {
 
   data() {
     return {
-      currentSectionComponent: "AppBanner",
+     
     };
   },
   methods: {

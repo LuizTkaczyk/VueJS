@@ -13,11 +13,25 @@
         </a>
 
         <div class="links mr-2">
-          <a href="#" @click.prevent="$emit('change-component', 'home')" class="btn mr-5">Início</a>
-          <a href="#"  @click.prevent="$emit('change-component', 'news')" class="btn mr-5">Games</a>
+          <!--Rota criada para a home -->
+          <router-link  class="btn mr-5" to="/">
+            Inicio</router-link
+          >
+
+          <router-link  class="btn mr-5" to="/news"
+            >Games</router-link
+          >
+
+          <!-- <a href="#" @click.prevent="$emit('change-component', 'home')" >Início</a>
+          <a href="#"  @click.prevent="$emit('change-component', 'news')" class="btn mr-5">Games</a> -->
           <a href="#" class="btn mr-5">Gêneros</a>
 
-          <select name="game" id="game-selected" class="form-control" @change="$emit('game-selected', $event.target.value)">
+          <select
+            name="game"
+            id="game-selected"
+            class="form-control"
+            @change="$emit('game-selected', $event.target.value)"
+          >
             <option value="">Tipos de jogos</option>
             <option value="luta" selected>Luta</option>
             <option value="corrida">Corrida</option>
@@ -37,7 +51,6 @@ export default {};
 header {
   background-color: black;
 }
-
 
 #logo {
   width: 100px;
@@ -62,5 +75,10 @@ header {
   color: ye;
   outline: none !important;
   box-shadow: none !important;
+}
+
+.link-active {
+  background-color: white;
+  color: black !important;
 }
 </style>
